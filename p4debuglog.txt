@@ -1,1 +1,91 @@
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x955: file p4final.c, line 51.
+(gdb) r
+Starting program: /home/runner/Test3Session2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
 
+Breakpoint 1, main () at p4final.c:51
+51  {
+(gdb) n
+53    deg=input_degree();
+(gdb) s
+input_degree () at p4final.c:4
+4   {
+(gdb) n
+6     printf("Enter the degree of the polynomial:");
+(gdb) n
+7     scanf("%d",&a);
+(gdb) n
+Enter the degree of the polynomial:2
+8     return a;
+(gdb) n
+9   }
+(gdb) n
+main () at p4final.c:54
+54    x=input_x();
+(gdb) s
+input_x () at p4final.c:12
+12  {
+(gdb) n
+14    printf("Enter the value of x:");
+(gdb) n
+15    scanf("%f",&x);
+(gdb) n
+Enter the value of x:1
+16    return x;
+(gdb) n
+17  }
+(gdb) n
+main () at p4final.c:55
+55    float a[deg];
+(gdb) d
+Delete all breakpoints? (y or n) n
+(gdb) s
+56    input_coefficients(deg,a);
+(gdb) n
+Enter the coefficient of X^2:1 
+Enter the coefficient of X^1:1
+Enter the coefficient of X^0:1
+57    result=evaluate_polynomial(deg,a,x);
+(gdb) n
+58    out_put(deg,a,x,result);
+(gdb) s
+out_put (n=2, a=0x7fffcc2ec960, x=1, result=3) at p4final.c:43
+43    for(i=0;i<n;i++)
+(gdb) n
+45        printf("%f*x^%d+",a[i],i);
+(gdb) n
+43    for(i=0;i<n;i++)
+(gdb) n
+45        printf("%f*x^%d+",a[i],i);
+(gdb) n
+43    for(i=0;i<n;i++)
+(gdb) n
+47    printf("%f*x^%d at %f is %f",a[n],n,x,result);
+(gdb) n
+48  }
+(gdb) n
+main () at p4final.c:59
+59  }(gdb) n
+__libc_start_main (main=0x562ecc400944 <main>, argc=1, argv=0x7fffcc2ecab8, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7fffcc2ecaa8) at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) c
+Continuing.
+1.000000*x^0+1.000000*x^1+1.000000*x^2 at 1.000000 is 3.000000[Inferior 1 (process 200) exited normally]

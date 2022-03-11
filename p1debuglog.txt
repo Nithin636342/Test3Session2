@@ -1,1 +1,99 @@
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x8f4: file p1final.c, line 42.
+(gdb) r
+Starting program: /home/runner/Test3Session2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
 
+Breakpoint 1, main () at p1final.c:42
+42  {
+(gdb) n
+44    input(&a,&b,&c,&d);
+(gdb) s
+input (num1=0x7ffe41f8a9a0, den1=0x7ffe41f8a9a4, 
+    num2=0x7ffe41f8a9a8, den2=0x7ffe41f8a9ac)
+    at p1final.c:4
+4     printf("Enter the value numerator ");
+(gdb) n
+5     scanf("%d",num1);
+(gdb) n
+Enter the value numerator 1
+6     printf("Enter the value denominator ");
+(gdb) n
+7     scanf("%d",den1);
+(gdb) n
+Enter the value denominator 2
+8     printf("Enter the value numerator ");
+(gdb) n
+9     scanf("%d",num2);
+(gdb) n
+Enter the value numerator 1
+10    printf("Enter the value of denominator ");
+(gdb) n
+11    scanf("%d",den2);
+(gdb) n
+Enter the value of denominator 4
+12  }
+(gdb) n
+main () at p1final.c:45
+45    add(a,b,c,d,&e,&f);
+(gdb) s
+add (num1=1, den1=2, num2=1, den2=4, 
+    num3=0x7ffe41f8a9b0, den3=0x7ffe41f8a9b4)
+    at p1final.c:15
+15  if(den1==den2)
+(gdb) n
+23    for(i=1; i<=den1 && i<=den2; i++)
+(gdb) n
+25        if(den1%i==0 && den2%i==0)
+(gdb) n
+27          gcd=i;
+(gdb) n
+23    for(i=1; i<=den1 && i<=den2; i++)
+(gdb) n
+25        if(den1%i==0 && den2%i==0)
+(gdb) n
+27          gcd=i;
+(gdb) n
+23    for(i=1; i<=den1 && i<=den2; i++)
+(gdb) n
+30    lcm=(den1*den2)/gcd;
+(gdb) n
+31    multi1=lcm/den1;
+(gdb) n
+32    multi2=lcm/den2;
+(gdb) n
+33    *num3=(num1*multi1)+(num2*multi2);
+(gdb) n
+34    *den3=lcm;
+(gdb) n
+36  }
+(gdb) n
+main () at p1final.c:46
+46    output(a,b,c,d,e,f);
+(gdb) s
+output (num1=1, den1=2, num2=1, den2=4, num3=3, 
+    den3=4) at p1final.c:39
+39  printf("%d/%d+%d/%d=%d/%d",num1,den1,num2,den2,num3,den3);
+(gdb) n
+40  }
+(gdb) n
+main () at p1final.c:47
+47    return 0;
+(gdb) c
+Continuing.
+1/2+1/4=3/4[Inferior 1 (process 2178) exited normally]

@@ -1,1 +1,135 @@
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x84d: file p3final.c, line 32.
+(gdb) r
+Starting program: /home/runner/Test3Session2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
 
+Breakpoint 1, main () at p3final.c:32
+32  {
+(gdb) n
+34    input_n_and_r(&a,&b);
+(gdb) s
+input_n_and_r (n=0x7ffd1bf0121c, r=0x7ffd1bf01220)
+    at p3final.c:4
+4     printf("Enter the value of n: ");
+(gdb) n
+5     scanf("%d",n);
+(gdb) n
+Enter the value of n: 8
+6     printf("Enter the value of r :");
+(gdb) n
+7     scanf("%d",r);
+(gdb) n
+Enter the value of r :5
+8   }
+(gdb) n
+main () at p3final.c:35
+35    result=ncr(a,b);
+(gdb) s
+ncr (n=8, r=5) at p3final.c:11
+11    int nfact=1,rfact=1,nrfact=1,ncr;     //nrfact is for (n-r)!
+(gdb) n
+12    for(int i=1;i<=n;i++)
+(gdb) n
+14        nfact*=i;
+(gdb) n
+12    for(int i=1;i<=n;i++)
+(gdb) n
+14        nfact*=i;
+(gdb) n
+12    for(int i=1;i<=n;i++)
+(gdb) n
+14        nfact*=i;
+(gdb) n
+12    for(int i=1;i<=n;i++)
+(gdb) n
+14        nfact*=i;
+(gdb) n
+12    for(int i=1;i<=n;i++)
+(gdb) n
+14        nfact*=i;
+(gdb) n
+12    for(int i=1;i<=n;i++)
+(gdb) n
+14        nfact*=i;
+(gdb) n
+12    for(int i=1;i<=n;i++)
+(gdb) n
+14        nfact*=i;
+(gdb) n
+12    for(int i=1;i<=n;i++)
+(gdb) n
+14        nfact*=i;
+(gdb) n
+12    for(int i=1;i<=n;i++)
+(gdb) n
+16    for(int j=1;j<=r;j++)
+(gdb) n
+18        rfact*=j;
+(gdb) n
+16    for(int j=1;j<=r;j++)
+(gdb) n
+18        rfact*=j;
+(gdb) n
+16    for(int j=1;j<=r;j++)
+(gdb) n
+18        rfact*=j;
+(gdb) n
+16    for(int j=1;j<=r;j++)
+(gdb) n
+18        rfact*=j;
+(gdb) n
+16    for(int j=1;j<=r;j++)
+(gdb) n
+18        rfact*=j;
+(gdb) n
+16    for(int j=1;j<=r;j++)
+(gdb) n
+20    for(int k=1;k<=(n-r);k++)
+(gdb) n
+22        nrfact*=k;
+(gdb) n
+20    for(int k=1;k<=(n-r);k++)
+(gdb) n
+22        nrfact*=k;
+(gdb) n
+20    for(int k=1;k<=(n-r);k++)
+(gdb) n
+22        nrfact*=k;
+(gdb) n
+20    for(int k=1;k<=(n-r);k++)
+(gdb) n
+24    ncr=nfact/(rfact*nrfact);
+(gdb) n
+25    return ncr;
+(gdb) n
+26  }
+(gdb) n
+main () at p3final.c:36
+36    output(a,b,result);
+(gdb) s
+output (n=8, r=5, result=56) at p3final.c:29
+29    printf("The factorial of %d and %d is %d",n,r,result);
+(gdb) n
+30  }
+(gdb) n
+main () at p3final.c:37
+37    return 0;
+(gdb) c
+Continuing.
+The factorial of 8 and 5 is 56[Inferior 1 (process 1756) exited normally]
